@@ -22,7 +22,7 @@ export const itemStateTrigger = trigger('itemState', [
     ]),
 
     transition(':leave', [
-        animate('1s ease-in', keyframes([
+        animate('500ms ease-in', keyframes([
             style({
                 opacity: 1,
                 transform: 'translateX(0)'
