@@ -1,0 +1,68 @@
+<div class="row">
+    <div class="col-md-6 col-md-offset-3 text-center">
+        <div *ngIf='!isSearching' @searchState>
+            <h1>Plans tonight?</h1>
+            <div class='icons'>
+                <i class="fa fa-map-marker fa-5x" aria-hidden="true"></i>
+                <i class="fa fa-car fa-5x" aria-hidden="true"></i>
+                <i class="fa fa-glass fa-5x" aria-hidden="true"></i>
+            </div>
+            <br>
+
+            <p class='lead'>See which bars are hoppin' tonight and RSVP ahead of time! Remember: take a cab and drink responsibly.</p>
+        </div>
+        <form [formGroup]='searchForm' >
+            <div class="form-group">
+                <input class='form-control text-center' formControlName='search' placeholder='Where you at?' @itemState>
+            </div>
+        </form>
+    </div>
+
+
+
+</div>
+<div class="text-center" *ngIf='loading'>
+    <i class="fa fa-refresh fa-spin fa-4x" aria-hidden="true"></i>
+</div>
+
+
+<div *ngIf='bars'>
+    <div class="row list" *ngFor='let result of bars; let i=index' @searchState>
+        <hr />
+        <div class="col-md-2 col-md-offset-2">
+            <img [src]="result?.image_url" class="img-thumbnail img-response" width='165' height='165' style="max-height:165px; max-width: 165px">
+
+        </div>
+        <div class="col-md-6">
+            <h3 [innerText]='result?.name' class='bar_title'></h3>
+            <span class='pull-right bookmark_icon' bookmark (click)='onBookMark(result)'><i class="fa fa-bookmark fa-3x" aria-hidden="true"></i></span>
+            <p><i>Rating:</i> {{result.rating}} <i style='color: yellow' class="fa fa-star" aria-hidden="true"></i> </p>
+            <p><i>Address:</i></p>
+            <ul *ngIf='result?.location.display_address'>
+                <li *ngFor='let adress of result?.location.display_address'>{{ adress }}</li>
+            </ul>
+            <p>Reviews:</p>
+            <div>
+
+            </div>
+
+
+            <!--<div *ngIf='result.reviews'>
+                <ul *ngFor='let review of result.reviews'>
+                    <li *ngFor='let texts of review'>{{ texts.text }}</li>
+                </ul>
+
+            </div>-->
+
+
+            <ul *ngFor='let review of result?.reviews'>
+                <li>{{ review[0]?.text }}</li>
+            </ul>
+
+
+
+
+        </div>
+
+    </div>
+</div>
