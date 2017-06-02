@@ -8,11 +8,19 @@ import { AppService } from '../app.service';
     templateUrl: './bookmark.component.html',
     animations: [itemStateTrigger],
     styles: [`       
-        
+    
 
-h1 {
-            color: red;
-        }
+    .nothing_bookmark {
+        margin: 50px auto;
+         color: white;
+         width: 100%;
+        
+    }
+
+    .nothing_bookmark h1 {
+        font-weight: 700;
+        text-align: center;
+    }
 
     .thumbnail {
         margin-top: 40px;

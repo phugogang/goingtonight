@@ -12,8 +12,8 @@
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
-        <li><a [routerLink]="['/']" routerLinkActive="active">Home</a></li>
-         <li *ngIf='isAuthenticated()'><a [routerLink]="['/bookmarks']" routerLinkActive="active">My Bookmark</a></li>
+        <li><a [routerLink]="['/']" routerLinkActive="active"><i class="fa fa-home" aria-hidden="true"></i> Home</a></li>
+         <li *ngIf='isAuthenticated()'><a [routerLink]="['/bookmarks']" routerLinkActive="active"><i class="fa fa-bookmark" aria-hidden="true"></i> My Bookmark</a></li>
         <!--<li *ngIf="isAuthenticated()"><a [routerLink]="['votes', 'new']" routerLinkActive="active">Create Poll</a></li>-->
         <!--<li *ngIf="isAuthenticated()"><a [routerLink]="['myvote', _appService.userId]" routerLinkActive="active">My Pools</a></li>-->
       </ul>
@@ -24,13 +24,13 @@
         </div>
 
         <ng-template #notauthenticate>
-          <li><a [routerLink]="['register']">Register</a></li>
-          <li><a [routerLink]="['login']">Login</a></li>
+          <li><a [routerLink]="['register']"><span class="glyphicon glyphicon-user"></span> Register</a></li>
+          <li><a [routerLink]="['login']"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
         </ng-template>
 
         <ng-template #authenticate>
-          <li><a>Hello: {{ getUsername() }}</a></li>
-          <li ><a (click)="onLogOut()">Logout</a></li>
+          <li><a><i class="fa fa-user" aria-hidden="true"></i> {{ getUsername() }}</a></li>
+          <li ><a (click)="onLogOut()"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a></li>
         </ng-template>
       </ul>
 

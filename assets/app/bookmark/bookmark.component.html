@@ -6,33 +6,39 @@
 
 
 <div *ngIf='results'>
-    <div class="row is-flex">  
-            <!--<div class="list" @itemState (@itemState.done)='onLoadingData($event, i)'>-->
-                <div class="col-md-4" *ngFor='let result of displayData; let i=index' @itemState (@itemState.done)='onLoadingData($event, i)'>
-                    <div class="thumbnail" *ngIf='result'>
-                        <div class='xtag_close' ><i class="fa fa-times fa-4x" (click)='onRemoveBookmark(result._id, i)'></i></div>
-                        <img [src]="result?.image_url" class='img-response'width='320px' height='280px' style="max-width: 320px; max-height:280px ">
-                        <!--<img [src]="result?.image_url" width='165' height='165' style="max-height:165px; max-width: 165px">-->
+     <div *ngIf='displayData.length == 0' class='nothing_bookmark' @itemState>
+            <h1>
+                Empty Bookmark.
+            </h1>
+        </div>
+    <div class="row is-flex">
+       
+        <!--<div class="list" @itemState (@itemState.done)='onLoadingData($event, i)'>-->
+        <div class="col-md-4" *ngFor='let result of displayData; let i=index' @itemState (@itemState.done)='onLoadingData($event, i)'>
+            <div class="thumbnail" *ngIf='result'>
+                <div class='xtag_close'><i class="fa fa-times fa-4x" (click)='onRemoveBookmark(result._id, i)'></i></div>
+                <img [src]="result?.image_url" class='img-response' width='320px' height='280px' style="max-width: 320px; max-height:280px ">
+                <!--<img [src]="result?.image_url" width='165' height='165' style="max-height:165px; max-width: 165px">-->
 
-                        <div class="caption">
-                            <h4 class='text-center'>{{ result.name }}</h4>
-                            <p><i>Rating:</i> {{result.rating}} <i style='color: yellow' class="fa fa-star" aria-hidden="true"></i>                                </p>
-                            <p><i>Address:</i></p>
-                            <ul *ngIf='result.address'>
-                                <li *ngFor='let address of result.address'>{{ address }}</li>
-                            </ul>
-                            <p>Reviews:</p>
-                            <ul *ngFor='let review of result?.reviews'>
-                                <li>{{ review.text }}</li>
-                            </ul>
-                        </div>
-                    </div>
+                <div class="caption">
+                    <h4 class='text-center'>{{ result.name }}</h4>
+                    <p><i>Rating:</i> {{result.rating}} <i style='color: yellow' class="fa fa-star" aria-hidden="true"></i>                        </p>
+                    <p><i>Address:</i></p>
+                    <ul *ngIf='result.address'>
+                        <li *ngFor='let address of result.address'>{{ address }}</li>
+                    </ul>
+                    <p>Reviews:</p>
+                    <ul *ngFor='let review of result?.reviews'>
+                        <li>{{ review.text }}</li>
+                    </ul>
                 </div>
-           
+            </div>
         </div>
 
-
     </div>
+
+
+</div>
 
 
 

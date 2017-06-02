@@ -12,7 +12,8 @@ html, body
 }
 
 body
-{  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;   
+{  
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;   
     min-height: 100%;
     margin: 0;
     padding: 0;

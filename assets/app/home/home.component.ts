@@ -16,10 +16,13 @@ import {AppService} from '../app.service';
     styles: [`
         input {
             background-color: inherit;
-            border: 1px solid white;
-            color: white;
+            border: 2px solid white;
+            box-shadow: 2px 2px 3px white;
+            color: white;     
+            height: 3.5em;
         }
 
+      
         input::placeholder {
             color: white;
         }
