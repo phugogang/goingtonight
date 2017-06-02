@@ -2,7 +2,7 @@ import {trigger, state, style, animate, transition, keyframes, group} from '@ang
 
 export const itemStateTrigger = trigger('itemState', [
     transition(':enter', [
-        animate('1s ease-out', keyframes([
+        animate('500ms ease-out', keyframes([
             style({
                 opacity: 0,
                 transform: 'translateX(-100%)',
@@ -43,7 +43,7 @@ export const itemStateTrigger = trigger('itemState', [
 
 export const searchStateTrigger = trigger('searchState', [
     transition(':enter', [
-        animate('1s ease-out', keyframes([
+        animate('500ms ease-out', keyframes([
             style({
                 opacity: 0,
                 transform: 'translateY(-100%)',
@@ -77,6 +77,42 @@ export const searchStateTrigger = trigger('searchState', [
     ])
 ]);
 
+
+export const displaySearchTrigger = trigger('displaysearchState', [
+    transition(':enter', [
+        animate('500ms ease-out', keyframes([
+            style({
+                opacity: 0,
+                transform: 'translateY(-100%)',
+                offset: 0
+            }),
+            style({
+                opacity: 0.7,
+                transform: 'translateY(10%)',
+                offset: 0.4
+            }),
+            style({
+                opacity: 1,
+                transform: 'translateY(0)',
+                offset: 1
+            })
+        ]))
+    ]),
+
+
+    transition(':leave', [
+        animate('500ms ease-in', keyframes([
+            style({
+                opacity: 1,
+                transform: 'translateY(0)'
+            }),
+            style({
+                opacity: 0.5,
+                transform: 'translateY(100%)'
+            })
+        ]))
+    ])
+]);
 
 
 export const routeFadeStateTrigger = trigger('routeFadeState', [

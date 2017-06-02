@@ -33,8 +33,10 @@ export class NavbarComponent implements OnInit {
    }
 
     onLogOut() {
-        localStorage.clear();
+        this._appService.resultsSave = [];
+        localStorage.clear();      
         this.router.navigate(['/']);
+       
     }
 
     

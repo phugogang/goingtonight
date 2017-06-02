@@ -2,7 +2,7 @@ import {Component, OnInit, HostBinding} from '@angular/core';
 import {FormGroup, FormControl} from '@angular/forms';
 import {ElementRef} from '@angular/core';
 import {AnimationEvent} from '@angular/animations';
-import {searchStateTrigger, itemStateTrigger} from '../animations';
+import {searchStateTrigger, itemStateTrigger, displaySearchTrigger} from '../animations';
 import 'rxjs/Rx';
 
 import {AppService} from '../app.service';
@@ -11,6 +11,7 @@ import {AppService} from '../app.service';
     templateUrl: './home.component.html',
     animations: [searchStateTrigger, 
                 itemStateTrigger,
+                displaySearchTrigger
               ],
     styles: [`
         input {
@@ -100,12 +101,11 @@ export class HomeComponent implements OnInit {
                         })
                 }
            
-                this._appService.resultsSave = this.bars;
-                
+                this._appService.resultsSave = this.bars;                
              
             })
         
-
+           
             
     }
 
